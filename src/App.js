@@ -1,31 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
-import Header from "./components/Header.js";
-import Nav from "./components/Nav.js";
-import Main from "./components/Main.js";
-import SubMain from "./components/SubMain.js";
-
-const flex = {
-  display: "flex",
-
-}
+import { useState } from 'react';
+// import Tabs from './components/Tabs';
+import Tab from './components/Tab';
 
 
 
 function App() {
+  // const [ tabs, setTabs ] = useState([]);
+
+  const tabList = [
+    { label: 'Tab 1', content: 'Tab 1 content is showing here' },
+    { label: 'Tab 2', content: 'Tab 2 content is showing here' },
+    { label: 'Tab 3', content: 'Tab 3 content is showing here' }
+  ];
+
+  const [message, setMessage] = useState("");
+
   return (
     <div className="App">
-
-      <Header firstName="Shayan" lastName="Valaie" age={25} />
-
-
-
-
-
-
+      {tabList.map((tab, i) => <Tab key={i} tab={tab} setmessage={setMessage} />)}
+      <p>{message}</p>
     </div>
-
-
   );
 }
 
